@@ -1,0 +1,12 @@
+# nxA001 for Sonic Pi
+# Miquel Parera (December,2016)
+
+use_random_seed 204
+
+notes = [rrand(5.0,11.0),rrand(5.0,11.0),rrand(5.0,11.0),rrand(5.0,11.0)]
+times = [rrand(1.0,10.0),rrand(1.0,10.0),rrand(1.0,10.0),rrand(1.0,10.0)]
+
+live_loop :nxA001 do
+  sample :perc_bell,pitch:choose(notes),amp: choose([rrand(1.0,10.0),0])
+  sleep choose(times)
+end

@@ -1,0 +1,25 @@
+
+# nxA003 for Sonic Pi
+# Miquel Parera (December,2016)
+
+use_random_seed 789
+
+notas = [choose([0,rrand(30.0,50.0)]),choose([0,rrand(30.0,50.0)]),
+         choose([0,rrand(30.0,50.0)]),choose([0,rrand(30.0,50.0)])]
+tiempos = [rrand(0.05,1.0),rrand(0.05,1.0),rrand(0.05,1.0),rrand(0.05,1.0)]
+amperios = [rrand(0.1,5.0),rrand(0.1,5.0),rrand(0.1,5.0),rrand(0.1,5.0)]
+
+live_loop :nxA003 do
+  notas[rrand(0,3)] = choose([0,rrand(30.0,50.0)])
+  use_synth :dull_bell
+  16.times do
+    4.times do |i|
+      play notas[i], amp: amperios[i]/4,attack: 1,release: 1
+      sleep tiempos[i]
+      play notas[i], amp: amperios[i]/4,attack: 1,release: 1
+      sleep tiempos[i]
+    end
+  end
+end
+
+

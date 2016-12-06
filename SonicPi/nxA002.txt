@@ -1,0 +1,23 @@
+
+# nxA002 for Sonic Pi
+# Miquel Parera (December,2016)
+
+use_random_seed 222
+
+live_loop :nxA002a do
+  with_fx :gverb do
+    use_synth :prophet
+    play_pattern_timed [rrand(20.0,50.0),0,rrand(20.0,50.0),0,rrand(20.0,50.0),0,0,0],
+      [rrand(10,100),rrand(10,100)], attack: rrand(10,100), release: rrand(1,50),
+      cutoff: rrand(50.0,120.0), amp: choose([rrand(0.1,0.5),0])
+  end
+end
+
+live_loop :nxA002b do
+  with_fx :gverb do
+    use_synth :prophet
+    play_pattern_timed [rrand(20.0,50.0),0,rrand(20.0,50.0),0,rrand(20.0,50.0),0,0,0],
+      [rrand(10,100),rrand(10,100)], attack: rrand(100,100), release: rrand(1,50),
+      cutoff: rrand(50.0,120.0), amp: choose([rrand(0.1,0.5),0])
+  end
+end
